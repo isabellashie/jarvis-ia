@@ -1,0 +1,132 @@
+Modelagem UML Aplicada à Engenharia de Requisitos: Diagramas de Caso de Uso
+
+Material de referência: Aula 09 — Engenharia de Requisitos. Prof. Me. Daniel Cunha da Silva (UFMS — Universidade Federal de Mato Grosso do Sul).
+
+1. Contexto: Onde Estamos na Engenharia de Requisitos
+
+Antes de mergulhar na modelagem UML, é importante posicionar o estudo dentro do processo geral de Engenharia de Requisitos:
+- Requisitos conectam problemas reais a soluções de software.
+- A qualidade dos requisitos garante clareza, completude e verificabilidade.
+- Stakeholders definem necessidades, expectativas e restrições.
+- A elicitação revela informações explícitas e implícitas dos usuários e do domínio.
+- Os processos organizam o ciclo de vida dos requisitos.
+- O diagrama de contexto delimita as fronteiras do sistema e suas interações externas.
+- Regras de negócio estabelecem as restrições e políticas que governam o comportamento do sistema.
+
+Depois desse trabalho prévio de levantamento e organização, partimos para a modelagem visual usando UML.
+
+2. UML — Unified Modeling Language
+
+A UML (Unified Modeling Language) é uma linguagem padrão para modelagem de sistemas orientados a objetos. Ela fornece um conjunto de notações gráficas para representar tanto estrutura quanto comportamento de sistemas de software.
+
+A modelagem de caso de uso foi originalmente desenvolvida por Jacobson et al. (1993) na década de 1990, e foi incorporada ao primeiro release formal da UML (Rumbaugh et al., 1999). Hoje, casos de uso são amplamente usados para a elicitação e documentação de requisitos, servindo como ponte entre os stakeholders de negócio e a equipe técnica.
+
+3. Diagramas de Caso de Uso: Visão Geral
+
+Os diagramas de caso de uso fornecem uma representação visual de alto nível dos requisitos do usuário. Em um único diagrama, conseguimos enxergar:
+- Atores externos — entidades que interagem com o sistema (pessoas, sistemas externos, dispositivos).
+- Funcionalidades do sistema — também chamadas de "casos de uso", representam as ações que o sistema oferece. São sempre nomeadas com um verbo no infinitivo seguido de um objeto (ex: "Realizar saque", "Cadastrar cliente").
+- Interações entre atores e sistema — representadas como linhas (relacionamentos de comunicação).
+- Fronteira do sistema — um retângulo que envolve os casos de uso e separa o que está DENTRO do escopo do software daquilo que é EXTERNO.
+
+4. Elementos Notacionais Fundamentais
+
+Os atores externos são desenhados como bonecos palito (stick figures) e ficam fora do retângulo de fronteira do sistema. Os casos de uso são desenhados como elipses dentro do retângulo. As setas entre atores e casos de uso indicam a direção do fluxo de comunicação.
+
+Diferenciação entre ator principal e ator secundário:
+- Ator principal: quando a seta sai do ator em direção ao caso de uso. Significa que o ator iniciou o uso da funcionalidade (ele é quem invoca o serviço).
+- Ator secundário: quando a seta sai do caso de uso em direção ao ator. Significa que o caso de uso precisa do ator externo para completar sua execução (geralmente um sistema externo ou repositório de dados).
+
+Exemplo prático (sistema de produtos químicos):
+- Solicitante (ator principal) inicia o caso de uso "Solicitar um produto químico".
+- Esse caso de uso depende do "Comprador" e do "Estoque de Produtos Químicos" como atores secundários para se completar.
+
+5. Relacionamento <<include>>
+
+A notação <<include>> indica que um caso de uso sempre incorpora obrigatoriamente o comportamento de outro caso de uso. Ou seja, sempre que o caso base é executado, o caso incluído também é executado — não é opcional.
+
+Características formais do <<include>>:
+- Representado por uma linha tracejada (não contínua).
+- A seta aponta do caso base para o caso incluído (na direção da dependência).
+- O estereótipo <<include>> é escrito sobre a linha.
+- Execução obrigatória do comportamento incluído.
+- Promove a reutilização de comportamento entre vários casos de uso.
+
+Exemplo prático (sistema bancário):
+Um cliente pode "Obter extrato", "Realizar saque" ou "Realizar transferência". Todas essas operações <<include>> "Fornecer identificação", porque toda operação bancária no sistema exige autenticação obrigatória do cliente. Modelar a autenticação como um caso de uso reutilizável evita repetir essa lógica em cada caso de uso operacional.
+
+6. Relacionamento <<extend>>
+
+A notação <<extend>> indica que um caso de uso pode adicionar comportamento opcional ou condicional a outro caso de uso. Diferente do include, a execução do caso estendido não é obrigatória — depende de uma condição.
+
+Características formais do <<extend>>:
+- Linha tracejada (igual ao include, mas com semântica oposta).
+- A seta aponta do caso estensor PARA o caso base (sentido inverso do include).
+- O estereótipo <<extend>> é escrito sobre a linha.
+- O comportamento adicional ocorre sob condição (não é executado sempre).
+
+Exemplo prático (editor de texto):
+O caso de uso "Editar documento" é o caso base. Ele pode ser opcionalmente enriquecido pelos casos "Substituir texto" e "Corrigir ortografia". A seta vai DESSES dois casos PARA "Editar documento", indicando que ambos estendem o caso base apenas quando o usuário escolhe usar essas funcionalidades.
+
+7. Extension Points (Pontos de Extensão)
+
+Para tornar mais preciso ONDE a extensão pode ocorrer dentro do caso base, a UML permite declarar pontos de extensão (extension points) explicitamente dentro do caso base. Eles funcionam como "ganchos" nomeados onde os casos com <<extend>> podem se conectar.
+
+Continuando o exemplo do editor de texto:
+O caso "Editar documento" pode declarar dois extension points: "Durante a edição" e "Ao finalizar a edição". Os casos "Corrigir ortografia" e "Substituir texto" podem se conectar a qualquer um desses pontos, indicando se a extensão ocorre durante o fluxo principal de edição ou apenas ao seu término.
+
+Benefícios:
+- Documentam claramente em que momento do fluxo do caso base a extensão se aplica.
+- Permitem múltiplos pontos de extensão diferentes no mesmo caso base.
+- Facilitam a comunicação entre analistas e desenvolvedores sobre o comportamento do sistema.
+
+8. Generalização entre Atores e Casos de Uso
+
+A generalização indica herança de comportamento, similar à herança em programação orientada a objetos. É representada por uma linha contínua com um triângulo vazio (não preenchido) na ponta, e a seta SEMPRE aponta para o elemento mais genérico.
+
+A generalização pode existir tanto entre atores quanto entre casos de uso:
+
+Generalização entre atores (exemplo de biblioteca):
+- Usuário é o ator genérico que pode "Reservar livro" e "Devolver livro".
+- Professor é um ator especializado que herda de Usuário. Portanto, todo Professor é um Usuário e também pode reservar e devolver livros.
+- Além disso, Professor possui um caso de uso adicional próprio: "Solicitar compra de título".
+
+Conclusões do exemplo:
+- Todo Professor é um Usuário (herança).
+- Todo Usuário pode reservar e devolver livros.
+- Professor, além disso, pode solicitar compra de títulos (especialização).
+
+Tipos de atores envolvidos na generalização:
+- Ator genérico (superclasse) — contém o comportamento comum.
+- Ator especializado (subclasse) — herda o comportamento comum e adiciona novos casos de uso específicos.
+
+9. Boas Práticas para Diagramas de Caso de Uso
+
+Algumas recomendações práticas ao construir esses diagramas:
+- Use verbos no infinitivo + objeto para nomear casos de uso (ex: "Cadastrar produto", nunca "Cadastro de produto" ou "Cadastrar").
+- Mantenha o diagrama em alto nível — detalhes de fluxo vão para a descrição textual de cada caso de uso, não no diagrama.
+- Identifique claramente quem é o ator principal vs secundário em cada interação.
+- Use <<include>> APENAS quando o comportamento incluído for verdadeiramente obrigatório e compartilhado entre múltiplos casos.
+- Use <<extend>> APENAS quando o comportamento adicional for opcional ou disparado por condições específicas.
+- Aplique generalização com parcimônia — só quando houver real relação de "é-um-tipo-de" entre os atores ou casos de uso.
+- Não exponha detalhes de implementação no diagrama (banco de dados, frameworks, etc.) — isso é responsabilidade do projeto/design, não da análise de requisitos.
+
+10. Síntese: Relação entre os Conceitos
+
+Resumo dos relacionamentos abordados:
+
+Comunicação (linha contínua): conecta um ator a um caso de uso. Indica que o ator participa daquela funcionalidade.
+
+<<include>> (linha tracejada com seta DO caso base PARA o caso incluído): comportamento obrigatório e reutilizável. Sempre executado quando o caso base é executado.
+
+<<extend>> (linha tracejada com seta DO caso estensor PARA o caso base): comportamento opcional/condicional. Executado apenas sob certas condições.
+
+Generalização (linha contínua com triângulo vazio apontando para o elemento mais genérico): herança de comportamento entre atores ou entre casos de uso.
+
+11. Referências
+
+- JACOBSON, I.; CHRISTERSON, M.; JONSSON, P.; OVERGAARD, G. Object-Oriented Software Engineering. Wokingham: Addison-Wesley, 1993.
+- RUMBAUGH, J.; JACOBSON, I.; BOOCH, G. The Unified Modeling Language Reference Manual. Reading, Mass.: Addison-Wesley, 1999.
+- SOMMERVILLE, Ian. Software engineering. 10. ed. Boston: Pearson, 2016.
+- WIEGERS, Karl E.; BEATTY, Joy. Software requirements. 3. ed. Redmond: Microsoft Press, 2013.
+- VALENTE, Marco Tulio. Engenharia de Software Moderna: Princípios e Práticas para Desenvolvimento de Software com Produtividade. Editora Independente, 2020.

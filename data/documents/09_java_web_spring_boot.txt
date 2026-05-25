@@ -1,0 +1,55 @@
+Introdução ao Java Web e Spring Boot
+Módulo 1: A Plataforma Java e o Ecossistema
+1.1 Divisão da Plataforma Java
+O ecossistema Java é historicamente dividido em três sub-plataformas principais, cada uma voltada a um segmento de mercado:
+
+Java SE (Standard Edition): É o núcleo (core) da linguagem. Contém as APIs fundamentais, tipos de dados, bibliotecas de conversão e a base para qualquer aplicação Java.
+
+Java ME (Micro Edition): Versão otimizada e reduzida para dispositivos embarcados, microcontroladores e dispositivos móveis antigos.
+
+Java EE (Enterprise Edition) / Jakarta EE: Extensão do Java SE com foco em aplicações corporativas e servidores de grande porte. Inclui especificações para persistência, mensageria e componentes web (como Servlets e JSPs).
+
+1.2 O Protocolo HTTP (Hypertext Transfer Protocol)
+A base da comunicação na Web funciona sob o modelo Cliente-Servidor através do protocolo HTTP:
+
+Requisição (Request): Mensagem enviada pelo cliente (geralmente um navegador web) para o servidor. Contém uma URL, um método HTTP (GET, POST, etc.) e cabeçalhos.
+
+Resposta (Response): Mensagem retornada pelo servidor para o cliente. Contém um código de status (ex: 200 OK, 404 Not Found) e o corpo do conteúdo (HTML, JSON, Imagens).
+
+Módulo 2: Evolução do Java para a Web
+2.1 Modelo Tradicional (Servlets e JSPs)
+Servlets: Classes Java que rodam no servidor e interceptam as requisições HTTP, processam a lógica de negócios e geram a resposta dinâmica. O código HTML costumava ser escrito dentro do código Java (via instruções de saída textuais).
+
+JSP (JavaServer Pages): Criado para inverter o papel dos Servlets, permitindo escrever código Java dentro de páginas estruturadas em HTML.
+
+Desafio Histórico: Manter e evoluir aplicações grandes usando apenas Servlets e JSPs gerava alto acoplamento, misturando regras de negócio com o código de exibição visual (visualização).
+
+2.2 O Surgimento do Spring Framework
+Para solucionar a complexidade do Java EE tradicional, surgiu o Spring Framework. Ele simplificou o desenvolvimento corporativo introduzindo conceitos fundamentais:
+
+Inversão de Controle (IoC): O controle do ciclo de vida dos objetos deixa de ser do desenvolvedor e passa a ser do framework.
+
+Injeção de Dependências (DI): Mecanismo onde o Spring fornece automaticamente as instâncias de objetos (componentes) que uma classe precisa para funcionar, evitando o uso manual do operador new e reduzindo o acoplamento do sistema.
+
+Módulo 3: Arquitetura Spring Boot e Padrão MVC
+3.1 O que é o Spring Boot?
+O Spring Boot é uma extensão do Spring Framework que visa acelerar a configuração inicial de um projeto. Ele elimina a necessidade de configurações manuais complexas (arquivos XML pesados) através do conceito de "Convenção sobre Configuração" e fornece um servidor embutido (como o Apache Tomcat), permitindo rodar a aplicação web como um arquivo Java executável simples (.jar).
+
+@RequestMapping: Mapeia uma URL específica para uma classe ou método do controlador.
+
+@ResponseBody: Indica que o valor retornado pelo método deve ser enviado diretamente no corpo da resposta HTTP (geralmente texto puro ou JSON), em vez de procurar por uma página HTML (View) correspondente.
+
+4.2 Configuração do Ambiente de Desenvolvimento (VS Code) Para desenvolver aplicações Java Web no Visual Studio Code, recomenda-se a instalação dos seguintes pacotes de extensões:
+
+Extension Pack for Java: Inclui suporte à linguagem, ferramentas de depuração (Debugger), gerenciador de testes e integração com o Maven (gerenciador de dependências e automação de compilação).
+
+Spring Boot Extension Pack: Adiciona suporte técnico, autocompletar e ferramentas de execução específicas para ecossistemas Spring.
+
+4.3 Criação do Projeto Prático
+A inicialização de um projeto Spring Boot é realizada através da ferramenta oficial Spring Initializr (disponível em https://start.spring.io). Para um primeiro projeto web dinâmico, selecionam-se as seguintes dependências:
+
+Spring Boot DevTools: Fornece reinicialização rápida do servidor a cada alteração de código, agilizando o desenvolvimento.
+
+Spring Web: Inclui o suporte para construção de aplicações Web, RESTful e o servidor embutido Apache Tomcat.
+
+Thymeleaf: Mecanismo de template para renderização de arquivos HTML dinâmicos integrados ao Spring.

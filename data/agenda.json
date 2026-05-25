@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "titulo": "Aula de Inteligência Artificial",
+    "data": "2025-06-02",
+    "horario": "08:00",
+    "tipo": "aula",
+    "descricao": "Conteúdo: RAG e Tool Calling com LLMs",
+    "local": "Sala 204 - Bloco B",
+    "criado_em": "2025-05-01T10:00:00"
+  },
+  {
+    "id": 2,
+    "titulo": "Prova de Machine Learning",
+    "data": "2025-06-05",
+    "horario": "14:00",
+    "tipo": "prova",
+    "descricao": "Conteúdo: Regressão, Classificação, Redes Neurais, Métricas",
+    "local": "Auditório Principal",
+    "criado_em": "2025-05-01T10:00:00"
+  },
+  {
+    "id": 3,
+    "titulo": "Aula de PLN",
+    "data": "2025-06-02",
+    "horario": "10:00",
+    "tipo": "aula",
+    "descricao": "Transformers e modelos de linguagem",
+    "local": "Sala 204 - Bloco B",
+    "criado_em": "2025-05-01T10:00:00"
+  },
+  {
+    "id": 4,
+    "titulo": "Entrega do Trabalho JARVIS - Etapa 1",
+    "data": "2025-06-10",
+    "horario": "23:59",
+    "tipo": "trabalho",
+    "descricao": "Entregar código e vídeo no repositório GitHub",
+    "local": "GitHub",
+    "criado_em": "2025-05-01T10:00:00"
+  },
+  {
+    "id": 5,
+    "titulo": "Seminário: Deep Learning Aplicado",
+    "data": "2025-06-04",
+    "horario": "16:00",
+    "tipo": "seminário",
+    "descricao": "Apresentações dos grupos sobre aplicações de deep learning",
+    "local": "Auditório Secundário",
+    "criado_em": "2025-05-01T10:00:00"
+  },
+  {
+    "id": 6,
+    "titulo": "Aula de Estruturas de Dados",
+    "data": "2025-06-03",
+    "horario": "08:00",
+    "tipo": "aula",
+    "descricao": "Grafos e algoritmos de busca",
+    "local": "Sala 101 - Bloco A",
+    "criado_em": "2025-05-01T10:00:00"
+  }
+]

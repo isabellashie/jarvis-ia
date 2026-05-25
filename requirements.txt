@@ -1,0 +1,24 @@
+# ── JARVIS Acadêmico — Dependências Python ──────────────────────────────────
+# Instale com: pip install -r requirements.txt
+
+# Servidor web
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+
+# Cliente OpenAI (compatível com Gemma 12B via llm.liaufms.org)
+openai==1.56.2
+
+# Embeddings para RAG
+sentence-transformers==3.3.1
+
+# Computação vetorial (busca por similaridade de cosseno)
+numpy==1.26.4
+
+# Leitura de PDFs (opcional, mas recomendado)
+pdfplumber==0.11.4
+
+# Validação de dados (Pydantic v2 já incluído no FastAPI)
+pydantic==2.10.3
+
+# Utilitários
+python-multipart==0.0.20   # Upload de arquivos no FastAPI

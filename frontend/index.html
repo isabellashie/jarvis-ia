@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JARVIS Acadêmico</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ══ HEADER ══════════════════════════════════════════════════════════════ -->
+  <header>
+    <div class="header-logo">
+      <div class="logo-icon"></div>
+      <div class="logo-text">
+        <h1>JARVIS</h1>
+        <p>Academic Intelligence System · v1.0</p>
+      </div>
+    </div>
+
+    <div class="header-status">
+      <div class="status-pill">
+        <div class="status-dot"></div>
+        <span>SISTEMA ONLINE</span>
+      </div>
+      <div class="header-datetime" id="header-clock">
+        <div id="clock-date">--/--/----</div>
+        <div id="clock-time">--:--:--</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ SIDEBAR ESQUERDA — Agenda ════════════════════════════════════════════ -->
+  <aside class="sidebar sidebar-left">
+
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Agenda</span>
+        <span class="panel-icon">📅</span>
+      </div>
+      <div class="panel-body">
+        <div class="period-selector">
+          <button class="period-btn active" data-period="hoje" onclick="loadAgenda('hoje', this)">Hoje</button>
+          <button class="period-btn" data-period="amanhã" onclick="loadAgenda('amanhã', this)">Amanhã</button>
+          <button class="period-btn" data-period="semana" onclick="loadAgenda('semana', this)">Semana</button>
+        </div>
+        <div id="agenda-list">
+          <div class="empty-state">Carregando...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adicionar evento -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Novo Evento</span>
+        <span class="panel-icon">➕</span>
+      </div>
+      <div class="panel-body">
+        <div class="mini-form">
+          <input id="evt-titulo" type="text" placeholder="Título do evento" />
+          <div class="row">
+            <input id="evt-data"    type="date" />
+            <input id="evt-horario" type="time" placeholder="Horário" />
+          </div>
+          <div class="row">
+            <select id="evt-tipo">
+              <option value="aula">Aula</option>
+              <option value="prova">Prova</option>
+              <option value="trabalho">Trabalho</option>
+              <option value="seminário">Seminário</option>
+              <option value="reunião">Reunião</option>
+            </select>
+            <input id="evt-local" type="text" placeholder="Local" />
+          </div>
+          <button class="btn-add" onclick="addEvento()">+ ADICIONAR EVENTO</button>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ══ ÁREA PRINCIPAL ═══════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- Tabs de navegação -->
+    <nav class="main-tabs">
+      <button class="main-tab active" onclick="switchMainTab('chat', this)">💬 Chat</button>
+      <button class="main-tab" onclick="switchMainTab('learn', this)">🧠 Aprendizado</button>
+      <button class="main-tab" onclick="switchMainTab('logs', this)">📋 Logs</button>
+    </nav>
+
+    <!-- ── TAB: Chat ────────────────────────────────────────────────────────── -->
+    <div id="chat-tab" style="display:flex; flex-direction:column; flex:1; overflow:hidden;">
+
+      <!-- Mensagens -->
+      <div id="chat-messages">
+        <!-- Tela de boas-vindas (desaparece quando há mensagens) -->
+        <div class="welcome-screen" id="welcome-screen">
+          <div class="big-logo">🤖</div>
+          <h2>JARVIS</h2>
+          <p>Assistente acadêmico inteligente. Pergunte sobre seus materiais, consulte sua agenda ou gerencie suas tarefas.</p>
+          <div class="welcome-chips">
+            <span class="welcome-chip" onclick="sendChip(this.textContent)">O que tenho na agenda hoje?</span>
+            <span class="welcome-chip" onclick="sendChip(this.textContent)">Quais tarefas estão pendentes?</span>
+            <span class="welcome-chip" onclick="sendChip(this.textContent)">Explique o algoritmo k-NN</span>
+            <span class="welcome-chip" onclick="sendChip(this.textContent)">O que é &lt;&lt;include&gt;&gt; em UML?</span>
+            <span class="welcome-chip" onclick="sendChip(this.textContent)">Tenho prova essa semana?</span>
+            <span class="welcome-chip" onclick="sendChip(this.textContent)">O que é Complemento de 2?</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="chat-input-area">
+        <div class="input-row">
+          <textarea
+            id="chat-input"
+            placeholder="Pergunte algo ao JARVIS... (Enter para enviar, Shift+Enter para nova linha)"
+            rows="1"
+            onkeydown="handleInputKey(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="btn-send" id="send-btn" onclick="sendMessage()" title="Enviar (Enter)">➤</button>
+        </div>
+        <div class="input-hints">
+          <span class="hint-chip" onclick="sendChip(this.textContent)">📅 Agenda de hoje</span>
+          <span class="hint-chip" onclick="sendChip(this.textContent)">✅ Tarefas pendentes</span>
+          <span class="hint-chip" onclick="sendChip(this.textContent)">📚 Diferença entre análise e projeto</span>
+          <span class="hint-chip" onclick="sendChip(this.textContent)">⚡ Explique árvores de decisão</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── TAB: Aprendizado ─────────────────────────────────────────────────── -->
+    <div id="learn-tab" class="hidden" style="display:flex; flex-direction:column; flex:1; overflow:hidden;">
+      <div style="flex:1; overflow-y:auto; padding:24px 32px; display:flex; flex-direction:column; gap:20px;">
+
+        <!-- Gerador de exercícios -->
+        <div class="learn-card">
+          <h3>⚡ Gerador de Exercícios</h3>
+          <p style="color:var(--text-secondary); font-size:12px; margin-bottom:14px;">
+            Digite um tema dos materiais e o JARVIS criará exercícios para praticar.
+          </p>
+          <div class="learn-input-row">
+            <input id="ex-tema" type="text" placeholder="Ex: k-NN, árvores de decisão, complemento de 2, UML..." />
+            <select id="ex-qtd" style="width:80px; background:rgba(0,212,255,0.05); border:1px solid var(--border); border-radius:4px; color:var(--text-primary); padding:10px; font-family:var(--font-mono); font-size:11px;">
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="5">5</option>
+            </select>
+            <button class="btn-primary" id="ex-btn" onclick="gerarExercicios()">GERAR</button>
+          </div>
+          <div class="learn-result" id="ex-result" style="min-height:100px;">
+            <span style="color:var(--text-muted); font-family:var(--font-mono); font-size:11px;">
+              Os exercícios gerados aparecerão aqui...
+            </span>
+          </div>
+        </div>
+
+        <!-- Active Recall / Avaliação -->
+        <div class="learn-card">
+          <h3>🎯 Active Recall — Avaliação de Resposta</h3>
+          <p style="color:var(--text-secondary); font-size:12px; margin-bottom:14px;">
+            Copie uma pergunta do gerador acima, escreva sua resposta e receba feedback detalhado.
+          </p>
+          <div style="margin-bottom:10px;">
+            <input id="eval-pergunta" type="text"
+              placeholder="Cole a pergunta aqui..."
+              style="width:100%; background:rgba(0,212,255,0.05); border:1px solid var(--border); border-radius:4px; color:var(--text-primary); padding:10px 14px; font-family:var(--font-body); font-size:13px; outline:none; margin-bottom:8px;"
+            />
+            <input id="eval-tema" type="text"
+              placeholder="Tema (ex: k-NN, casos de uso UML)..."
+              style="width:100%; background:rgba(0,212,255,0.05); border:1px solid var(--border); border-radius:4px; color:var(--text-primary); padding:10px 14px; font-family:var(--font-body); font-size:13px; outline:none;"
+            />
+          </div>
+          <textarea class="eval-area" id="eval-resposta"
+            placeholder="Escreva sua resposta aqui antes de ver a correção..."
+          ></textarea>
+          <button class="btn-primary" id="eval-btn" onclick="avaliarResposta()">AVALIAR RESPOSTA</button>
+          <div class="learn-result" id="eval-result" style="margin-top:14px; min-height:80px;">
+            <span style="color:var(--text-muted); font-family:var(--font-mono); font-size:11px;">
+              O feedback do JARVIS aparecerá aqui...
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── TAB: Logs ────────────────────────────────────────────────────────── -->
+    <div id="logs-tab" class="hidden" style="display:flex; flex-direction:column; flex:1; overflow:hidden;">
+      <div style="display:flex; align-items:center; gap:10px; padding:12px 24px; border-bottom:1px solid var(--border); background:rgba(6,15,30,0.8);">
+        <button class="btn-primary" onclick="loadLogs()" style="padding:7px 14px; font-size:8px;">↺ ATUALIZAR</button>
+        <button onclick="clearLogs()" style="padding:7px 14px; background:rgba(255,60,90,0.1); border:1px solid rgba(255,60,90,0.3); border-radius:4px; color:var(--red); font-family:var(--font-hud); font-size:8px; cursor:pointer; letter-spacing:2px;">🗑 LIMPAR</button>
+        <span id="logs-summary" style="margin-left:auto; font-family:var(--font-mono); font-size:10px; color:var(--text-muted);"></span>
+      </div>
+      <div id="logs-panel" style="flex:1; overflow-y:auto; padding:16px 24px;">
+        <div class="empty-state">Carregando logs...</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ SIDEBAR DIREITA — Tarefas & Documentos ═══════════════════════════════ -->
+  <aside class="sidebar sidebar-right">
+
+    <!-- Painel de tarefas -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Tarefas</span>
+        <span class="panel-icon">✅</span>
+      </div>
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="loadTasks('pendentes', this)">Pendentes</button>
+        <button class="tab-btn" onclick="loadTasks('todas', this)">Todas</button>
+        <button class="tab-btn" onclick="loadTasks('concluidas', this)">Feitas</button>
+      </div>
+      <div class="panel-body" style="max-height:280px; overflow-y:auto;">
+        <div id="tasks-list">
+          <div class="empty-state">Carregando...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nova tarefa -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Nova Tarefa</span>
+        <span class="panel-icon">📝</span>
+      </div>
+      <div class="panel-body">
+        <div class="mini-form">
+          <input id="task-titulo" type="text" placeholder="Título da tarefa" />
+          <input id="task-disciplina" type="text" placeholder="Disciplina (opcional)" />
+          <div class="row">
+            <select id="task-prioridade">
+              <option value="baixa">Baixa</option>
+              <option value="média" selected>Média</option>
+              <option value="alta">Alta</option>
+              <option value="urgente">Urgente</option>
+            </select>
+            <input id="task-prazo" type="date" />
+          </div>
+          <button class="btn-add" onclick="addTarefa()">+ ADICIONAR TAREFA</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documentos RAG -->
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Materiais RAG</span>
+        <span class="panel-icon">📚</span>
+      </div>
+      <div class="panel-body">
+        <div id="docs-list" style="max-height:150px; overflow-y:auto; margin-bottom:8px;">
+          <div class="empty-state">Carregando...</div>
+        </div>
+        <div class="upload-area" onclick="document.getElementById('file-upload').click()">
+          <label class="upload-label">
+            <input type="file" id="file-upload" accept=".txt,.pdf,.md" onchange="uploadDocument(this)" />
+            <span>📤</span>
+            <span>Enviar documento</span>
+            <span class="upload-hint">TXT · PDF · MD</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- Toast container -->
+<div id="toast-container"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

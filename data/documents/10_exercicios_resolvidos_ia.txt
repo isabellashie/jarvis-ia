@@ -1,0 +1,132 @@
+Resolução da Lista de Exercícios 1
+                             
+1. Conceitos Introdutórios
+(a) Explique o que é raciocínio indutivo. Apresente três descobertas científicas realizadas por este tipo de raciocínio. Nos exemplos de descoberta científica, apresente os fatos e a generalização do conceito que foi obtido pela indução. O raciocínio indutivo é o processo de inferência que parte de observações específicas, dados ou fatos repetidos para formular uma conclusão geral, uma regra ou uma teoria. Diferente da dedução, a indução gera novos conhecimentos ampliando o que foi observado, embora a conclusão tenha um caráter probabilístico.
+
+1. Descoberta da Penicilina (Alexander Fleming)Fatos: Fleming observou que, em placas de cultura de bactérias contaminadas pelo mofo Penicillium notatum, as bactérias ao redor do mofo haviam morrido.
+Generalização: O mofo produz uma substância substancialmente capaz de eliminar bactérias (origem dos antibióticos modernos).
+
+2. Lei da Gravitação Universal (Isaac Newton)
+Fatos: A observação de objetos caindo em direção ao centro da Terra e o movimento regular dos planetas em suas órbitas.
+Generalização: Todos os corpos no universo exercem uma força de atração mútua que depende de suas massas e da distância entre eles.
+
+3. Teoria da Seleção Natural (Charles Darwin)
+Fatos: Darwin observou que espécimes de tentilhões em diferentes ilhas de Galápagos possuíam bicos
+perfeitamente adaptados aos tipos de alimentos disponíveis em cada ilha.
+Generalização: As espécies se modificam ao longo do tempo através da sobrevivência e reprodução dos
+indivíduos portadores de características mais adaptativas ao meio ambiente.
+
+
+(b) A indução de hipóteses é realizada a partir de fatos e observações. Explique por que esta hipótese tem que ser utilizada com cuidado?
+A hipótese gerada por indução deve ser utilizada com extrema cautela porque correlação não implica
+causalidade, e os dados observados podem ser incompletos ou enviesados.
+Padrões Ilusórios: Se você observar 20 pessoas com tosse que testaram positivo para gripe, a indução
+sugere que "tossir significa gripe". No entanto, o diagnóstico médico real exige cautela, pois a tosse é comum a dezenas de patologias distintas.
+
+
+Evidências Circunstanciais: Na investigação criminal, um suspeito encontrado próximo à cena do crime com a arma na mão induz fortemente a conclusão de culpa. Sem considerar outras hipóteses, comete-se um erro grave de julgamento.
+Exemplos Incompletos: As primeiras pistas levam a conclusões precipitadas que mudam completamente com a introdução de uma nova pista. A indução é uma aposta estatística baseada na amostra disponível.
+
+(c) Na década de 80, a inteligência artificial era representada principalmente pelos sistemas
+especialistas. O que muda com o uso de aprendizado de máquina?
+No paradigma dos Sistemas Especialistas, o fluxo era manual e focado em regras lógicas explícitas
+fornecidas por engenheiros de conhecimento humano.
+Com o Aprendizado de Máquina (Machine Learning), a abordagem passa a ser orientada a dados. O
+conhecimento não é mais extraído verbalmente do especialista e programado linha por linha. O algoritmo computacional extrai de forma autónoma os padrões, regras matematicamente ponderadas e correlações diretamente de um grande volume de dados históricos.
+
+(d) É correto dizer que o aprendizado sempre acontece por meio de estímulos sensoriais?Justifique.
+
+
+Não é correto. Embora o aprendizado biológico dependa de estímulos sensoriais para interagir com o ambiente, o conceito de aprendizado em Computação define-se como a melhoria no desempenho de uma tarefa a partir da experiência. No Aprendizado de Máquina, a experiência se dá na forma de representações matemáticas, matrizes numéricas, bases de dados e logs de texto, que são registros estruturados e não estímulos sensoriais físicos.
+
+
+(e) Qual é a diferença entre um problema de classificação e regressão? Dê exemplos.
+A diferença fundamental está no tipo de dado da variável de saída (alvo):
+Classificação: A saída é uma variável categórica (discreta). O objetivo é mapear as entradas em classes ou rótulos predefinidos. Exemplos: Filtro de Spam, Diagnóstico de tumores (Benigno/Maligno) e Análise de Sentimento.
+Regressão: A saída é uma variável numérica contínua. O objetivo é prever um valor real quantificável. Exemplos: Previsão do preço de imóveis, Estimativa da temperatura máxima e Valor de fechamento de ações.
+
+(f) Dois sistemas utilizam regras "se-então". Sistema A valida uma senha. Sistema B analisa múltiplos sintomas interdependence e recomenda exames. Explique qual é IA.
+Apenas o Sistema B pode ser considerado Inteligência Artificial. O Sistema A executa uma validação direta e determinística (uma comparação booleana exata). O Sistema B utiliza uma verdadeira Representação de Conhecimento e um Mecanismo de Inferência, sendo capaz de simular o raciocínio clínico humano, ligar
+regras de forma dinâmica e gerar deduções a partir de dados incertos.
+
+(g) Um sistema construído com centenas de regras "se-então" para automatizar tarefas administrativas é IA apenas por usar regras? Discuta.
+A afirmação está incorreta. A mera presença de estruturas condicionais estáticas não transforma um software tradicional em IA. Sistemas administrativos triviais tratam de automação rígida de fluxos. Para ser considerado IA, um sistema baseado em regras (como os Sistemas Especialistas) precisa separar explicitamente a Base de Conhecimento do Mecenismo de Inferência, lidando com encadeamentos complexos e tratamento de incertezas.
+
+
+
+(h) O experimento mental do Chinese Room e os Modelos de Linguagem de Grande Escala (LLMs). Discuta se compreendem ou apenas manipulam padrões.
+O experimento de John Searle argumenta que um sistema pode manipular símbolos de forma correta
+(seguindo um livro de regras) sem realmente compreender o significado. Os LLMs operam de forma análoga através do cálculo estatístico de probabilidades de tokens baseados em arquiteturas Transformers.
+Argumento contra a compreensão: Os LLMs apenas manipulam sintaxe e relações vetoriais estatísticas. Não há intencionalidade ou experiência real com o mundo.
+Argumento a favor da compreensão: O sistema completo desenvolve de forma emergente representações conceituais e modelos de mundo internos funcionais e profundos.
+
+(i) Descreva o surgimento da Inteligência Artificial como área científica. Qual foi o papel da conferência de Dartmouth?
+A IA emergiu formalmente como disciplina científica independente em 1956, durante a Conferência de Dartmouth. Organizada por John McCarthy, Marvin Minsky, Nathaniel Rochester e Claude Shannon, teve o papel crucial de cunhar oficialmente o termo "Inteligência Artificial", unificar pesquisas dispersas e definir o
+escopo inicial da área.
+
+
+(j) Compare sistemas especialista com modelos modernos baseados em aprendizado profundo.
+Sistemas Especialistas: Têm como vantagem a alta explicabilidade e dispensa de dados massivos. limitação é o gargalo na aquisição manual de conhecimento e total rigidez.
+Aprendizado Profundo: Destaca-se pelo desempenho estado da arte em dados não estruturados (imagens/texto). Como limitação, possui natureza de "caixa-preta" e dependência massiva de computação e dados.
+
+
+(k) Explique a diferença entre indutor e classificador.
+No contexto do aprendizado:
+Indutor: É o algoritmo de aprendizado usado na fase de treinamento (ex: ID3, Naïve Bayes). O seu papel é analisar a base histórica para gerar a estrutura de decisão.
+Classificador: É o modelo final estático resultante da indução. O seu papel é receber dados inéditos em produção e inferir imediatamente a predição.
+
+
+(l) Discuta por que modelos de IA podem apresentar viés.
+Modelos de IA reproduzem e amplificam vieses contidos nos dados de treinamento. Se o histórico de contratações de uma empresa favoreceu homens, o modelo aprenderá que o género masculino é um fator
+positivo. Similarmente, sistemas de reconhecimento facial treinados maioritariamente com pessoas brancas falham mais ao analisar minorias étnicas.
+
+(m) Explique a relação hierárquica entre IA, Machine Learning, Redes Neurais, Deep Learning e
+LLMs.
+A relação é de inclusão sucessiva: IA ³ Machine Learning ³ Redes Neurais ³ Deep Learning ³ LLMs.
+Em termos práticos num banco: a IA engloba os sistemas inteligentes; o Machine Learning prevê o score de crédito; as Redes Neurais detectam fraudes temporais no PIX; o Deep Learning realiza a biometria facial e os LLMs operam o chatbot de atendimento.
+
+2. RAG (Geração Aumentada de Recuperação)
+
+(a) Explique o funcionamento do TF-IDF. Qual é a intuição por trás dos termos TF e IDF?
+O TF-IDF avalia a importância de uma palavra em um documento pertencente a um corpus: 
+TF-IDF = TF(t, d) × IDF(t, D)
+TF (Term Frequency): Mede a frequência de um termo no documento. A intuição é que termos frequentes indicam o assunto do documento.
+IDF (Inverse Document Frequency): Mede a raridade do termo na coleção. Termos muito comuns (como artigos e preposições) têm o seu peso reduzido, enquanto termos raros ganham destaque.
+
+
+(b) Compare TF-IDF e BM25. Como o BM25 lida com o tamanho dos documentos?
+O BM25 é uma evolução probabilística do TF-IDF. Ele introduz a saturação da frequência do termo,
+impedindo que a repetição infinita de uma palavra distorça a pontuação. Além disso, realiza a normalização pelo comprimento do documento, penalizando textos excessivamente longos que contêm muitas palavras e beneficiando documentos curtos e objetivos.
+
+(c) Explique o conceito de vetores densos (embeddings) em comparação com representações
+esparsas.
+
+
+Os embeddings são representações matemáticas contínuas em um espaço vetorial de dimensão fixa. Ao contrário do TF-IDF (representação esparsa, cheia de zeros e baseada em palavras exatas), os vetores densos são totalmente preenchidos com valores reais e capturam a proximidade semântica de conceitos (ex: "rei" e "rainha" ficam próximos espacialmente).
+
+3. KNN (k-Nearest Neighbors)
+(a) O uso de k=1 pode levar a classificações incorretas? Explique.
+Sim. Com k=1, o algoritmo é guiado puramente pelo vizinho geométrico mais próximo. Se esse ponto for um ruído ou um outlier, o novo dado herdará essa classificação incorreta, sem o benefício de uma votação
+majoritária para suavizar o erro.
+
+(b) Por que a normalização dos valores é de grande importância para o K-NN?
+Como o K-NN baseia-se em cálculos de distâncias, atributos em escalas numéricas muito grandes (ex:
+Salário de R$ 50.000) dominarão completamente atributos em escalas pequenas (ex: Idade de 25 anos). A normalização iguala a importância de todas as variáveis no cálculo geométrico.
+
+(c) Explique como o valor de k influencia o viés e a variância.
+k pequeno: Baixo viés, mas alta variância. O modelo é altamente sensível a ruídos e o contorno da fronteira de decisão é complexo (risco de overfitting).
+k grande: Baixa variância, mas alto viés. A fronteira de decisão torna-se excessivamente suave e simplificada, ignorando nuances locais (risco de underfitting).
+
+
+(d) Explique o problema da "maldição da dimensionalidade" no contexto do K-NN.
+À medida que o número de dimensões cresce, o volume do hiperespaço cresce exponencialmente e os
+dados tornam-se esparsos. Em alta dimensionalidade, a distância matemática entre qualquer par de pontos torna-se quase idêntica, destruindo a noção de "proximidade" essencial para o funcionamento do K-NN.
+
+(e) Qual é a importância de realizar poda em árvores de decisão?
+As árvores tendem a crescer até memorizarem todas as especificidades e ruídos do treino. A poda
+(pruning) remove ramos inferiores redundantes que não acrescentam ganho estatístico real, prevenindo o overfitting e tornando o modelo final mais simples e interpretável.
+
+(f) Qual algoritmo classifica mais rapidamente 1.000.000 de exemplos: uma árvore com
+profundidade 10 ou o KNN?
+A Árvore de Decisão. Para classificar uma instância, ela realiza no máximo 10 testes condicionais lógicos simples. O K-NN necessitaria computar a distância da nova instância contra todos os milhares de registros da base de treino para cada uma das consultas, exigindo trilhões de operações matemáticas.
+

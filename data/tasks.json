@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "titulo": "Implementar pipeline RAG do JARVIS",
+    "descricao": "Configurar sentence-transformers, chunking, indexação e busca por similaridade",
+    "prioridade": "alta",
+    "prazo": "2025-06-08",
+    "disciplina": "Inteligência Artificial",
+    "concluida": false,
+    "criada_em": "2025-05-01T10:00:00",
+    "concluida_em": null
+  },
+  {
+    "id": 2,
+    "titulo": "Estudar Transformers para prova",
+    "descricao": "Revisar mecanismo de atenção, BERT e GPT",
+    "prioridade": "urgente",
+    "prazo": "2025-06-04",
+    "disciplina": "PLN",
+    "concluida": false,
+    "criada_em": "2025-05-01T10:00:00",
+    "concluida_em": null
+  },
+  {
+    "id": 3,
+    "titulo": "Preparar dataset com 10 documentos",
+    "descricao": "Criar documentos acadêmicos sobre IA e ML para o RAG",
+    "prioridade": "alta",
+    "prazo": "2025-06-07",
+    "disciplina": "Inteligência Artificial",
+    "concluida": true,
+    "criada_em": "2025-05-01T10:00:00",
+    "concluida_em": "2025-05-15T14:30:00"
+  },
+  {
+    "id": 4,
+    "titulo": "Gravar vídeo de apresentação do JARVIS",
+    "descricao": "Vídeo de até 3 minutos mostrando arquitetura e sistema funcionando",
+    "prioridade": "média",
+    "prazo": "2025-06-09",
+    "disciplina": "Inteligência Artificial",
+    "concluida": false,
+    "criada_em": "2025-05-01T10:00:00",
+    "concluida_em": null
+  },
+  {
+    "id": 5,
+    "titulo": "Revisar regressão logística",
+    "descricao": "Focar em função de custo, gradiente e regularização",
+    "prioridade": "alta",
+    "prazo": "2025-06-04",
+    "disciplina": "Machine Learning",
+    "concluida": false,
+    "criada_em": "2025-05-01T10:00:00",
+    "concluida_em": null
+  },
+  {
+    "id": 6,
+    "titulo": "Escrever README do projeto",
+    "descricao": "Documentar arquitetura, instalação, uso e ferramentas de IA utilizadas",
+    "prioridade": "média",
+    "prazo": "2025-06-09",
+    "disciplina": "Inteligência Artificial",
+    "concluida": false,
+    "criada_em": "2025-05-01T10:00:00",
+    "concluida_em": null
+  }
+]
