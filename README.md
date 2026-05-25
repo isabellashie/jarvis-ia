@@ -324,6 +324,12 @@ Cada decisão da estratégia de chunking afeta diretamente o desempenho do RAG. 
 
 ---
 
+## Drive do video
+
+https://drive.google.com/file/d/1cPWdRNzhapyH3qkY219rnX4yOmdtzSqx/view
+
+---
+
 ## 👥 Equipe
 
 - **Integrante 1**: _[Giovanna dos Santos Dalcin - RGA: 202419070531]_
