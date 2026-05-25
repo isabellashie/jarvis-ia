@@ -26,7 +26,7 @@ O JARVIS Acadêmico está desenvolvido como trabalho prático da disciplina de I
 ### 1. Clone o repositório
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone <github.com/isabellashie/jarvis-ia>
 cd jarvis
 ```
 
