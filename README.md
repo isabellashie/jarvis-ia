@@ -309,7 +309,9 @@ Cada decisão da estratégia de chunking afeta diretamente o desempenho do RAG. 
 
 | Ferramenta | Uso |
 |---|---|
-| **Claude (Anthropic)** | Arquitetura geral, geração de código backend e frontend, polimento de dados e documentação |
+| **Claude (Anthropic)** | Arquitetura geral, auxílio na documentação e refinamento estrutural do projeto |
+| **Claude Code** | Desenvolvimento e refinamento visual do frontend, especialmente estilização CSS e ajustes da interface |
+| **Gemini (Google)** | Padronização e refinamento dos documentos utilizados no RAG para melhorar consistência e recuperação semântica |
 | **Gemma 3 12B** | LLM central do sistema (inferência em tempo de execução) |
 
 ---
